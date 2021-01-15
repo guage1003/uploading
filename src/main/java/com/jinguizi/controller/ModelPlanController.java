@@ -55,7 +55,6 @@ public class ModelPlanController {
     @Log("上传文件")
     @PostMapping("upload")
     public Result upload(MultipartFile test,HttpServletRequest request){
-        //获取我们的文件名称，存进session中，用于做aop向syslog数据表中记录操作
         request.getSession().setAttribute("fileName",test.getOriginalFilename());
         return modelPlanService.addModelPlan(request,test);
     }
